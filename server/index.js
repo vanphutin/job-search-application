@@ -1,4 +1,6 @@
 const express = require("express");
+const database = require("./config/database.config");
+const routerV1 = require("./api/v1/routers/index.router");
 const app = express();
 require("dotenv").config();
 
@@ -9,10 +11,20 @@ app.get("/", (req, res) => {
 });
 
 //router
+routerV1(app);
 
 // Ensure the pool connection is established before starting the server
+database.getConnection((error, connection) => {
+  if (error) {
+    console.error("Error connecting to database:", error);
+    return;
+  }
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log("Connected to MySQL database");
+
+  connection.release();
+  // Start server
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
 });
