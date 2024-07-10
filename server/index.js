@@ -2,9 +2,13 @@ const express = require("express");
 const database = require("./config/database.config");
 const routerV1 = require("./api/v1/routers/index.router");
 const app = express();
+const cors = require("cors");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 3000;
+
+//cors
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("hello world 🍀");
