@@ -2,6 +2,7 @@
 
 const db = require("../../../config/database.config");
 const { promisify } = require("util");
+var md5 = require("md5");
 
 // Chuyển đổi db.query thành một hàm trả về Promise
 const query = promisify(db.query).bind(db);
@@ -35,7 +36,7 @@ const Users = {
         firstname,
         email,
         username,
-        password,
+        md5(password),
         avata,
       ]);
 
