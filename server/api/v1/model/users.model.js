@@ -7,6 +7,16 @@ const { promisify } = require("util");
 const query = promisify(db.query).bind(db);
 
 const Users = {
+  getAllUsers: async () => {
+    const sql = "SELECT * FROM users";
+    try {
+      const result = await query(sql);
+      return result;
+    } catch (error) {
+      throw ("error at model", error);
+    }
+  },
+
   postCreateUser: async (
     idUser,
     lastname,

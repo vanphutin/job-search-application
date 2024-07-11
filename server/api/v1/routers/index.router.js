@@ -4,5 +4,5 @@ const userRouter = require("./user.router");
 module.exports = (app) => {
   const version = "/api/v1";
   app.use(version + "/jobs", jobsRouter);
-  app.use(version + "/", userRouter);
+  app.use(version + "/users", userRouter);
 };
