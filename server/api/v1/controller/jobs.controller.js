@@ -37,9 +37,13 @@ module.exports.createJob = async (req, res) => {
   const { id } = req.params;
   try {
     const idJob = uid();
-    const { title, description, location, salary, company, id } = req.body;
+    const { title, description, location, salary, company, id, avatar } =
+      req.body;
 
-    if (!title || !description || !location || !salary || !company || !id) {
+    if (
+      (!title || !description || !location || !salary || !company || !id,
+      !avatar)
+    ) {
       res.status(400).jobs({
         code: 400,
         message: ' message: "All fields are required',
@@ -53,7 +57,8 @@ module.exports.createJob = async (req, res) => {
       location,
       salary,
       company,
-      id
+      id,
+      avatar
     );
 
     res.status(201).json({

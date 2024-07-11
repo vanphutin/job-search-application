@@ -34,10 +34,11 @@ const Jobs = {
     location,
     salary,
     company,
-    id
+    id,
+    avatar
   ) => {
     const sql_create =
-      "INSERT INTO jobs (idJob, title, description, location, salary, company, idUser) VALUES(?,?,?,?,?,?,?)  ";
+      "INSERT INTO jobs (idJob, title, description, location, salary, company, idUser,avatar) VALUES(?,?,?,?,?,?,?,?)  ";
 
     try {
       const result = await query(sql_create, [
@@ -48,6 +49,7 @@ const Jobs = {
         salary,
         company,
         id,
+        avatar,
       ]);
       return result;
     } catch (error) {
