@@ -27,6 +27,33 @@ const Jobs = {
       throw ("error at model >", error);
     }
   },
+  createJob: async (
+    idJob,
+    title,
+    description,
+    location,
+    salary,
+    company,
+    id
+  ) => {
+    const sql_create =
+      "INSERT INTO jobs (idJob, title, description, location, salary, company, idUser) VALUES(?,?,?,?,?,?,?)  ";
+
+    try {
+      const result = await query(sql_create, [
+        idJob,
+        title,
+        description,
+        location,
+        salary,
+        company,
+        id,
+      ]);
+      return result;
+    } catch (error) {
+      throw ("error at model >", error);
+    }
+  },
 };
 
 module.exports = Jobs;
