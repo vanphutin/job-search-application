@@ -12,14 +12,15 @@ const User = () => {
         })
         .then((data) => setUsers(data.users));
     }
+
     fetchData();
   }, []);
 
   return (
-    <div>
+    <>
       user
       <TableUser user={users} />
-    </div>
+    </>
   );
 };
 

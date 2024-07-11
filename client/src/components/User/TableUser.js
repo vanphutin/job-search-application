@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import ModelPost from "./ModelPost";
 
 const TableUser = (props) => {
-  // console.log("props >", props.users);
+  const [show, setShow] = useState(false);
+  const [emailPersonPost, emailIdPersonPost] = useState(null);
+  const [id, setIdPersonPost] = useState(null);
+
+  const handleClose = () => {
+    emailIdPersonPost(null);
+    setIdPersonPost(null);
+    setShow(false);
+  };
+  const handleShow = (emailUser, idUser) => {
+    emailIdPersonPost(emailUser);
+    setIdPersonPost(idUser);
+    setShow(true);
+  };
+
+  // console.log("idUser >", idPersonPost);
   return (
-    <div>
+    <>
       <div>
         <table>
           <thead>
@@ -39,7 +55,12 @@ const TableUser = (props) => {
                   </td>
 
                   <td>
-                    <button className="btn btn-dark">Post</button>
+                    <button
+                      className="btn btn-dark"
+                      onClick={() => handleShow(items.email, items.idUser)}
+                    >
+                      Post
+                    </button>
                     <button
                       className="btn btn-info"
                       style={{ margin: " 0 30px" }}
@@ -54,7 +75,13 @@ const TableUser = (props) => {
           </tbody>
         </table>
       </div>
-    </div>
+      <ModelPost
+        show={show}
+        handleClose={handleClose}
+        emailPersonPost={emailPersonPost}
+        id={id}
+      />
+    </>
   );
 };
 
