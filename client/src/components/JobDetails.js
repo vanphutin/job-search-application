@@ -25,21 +25,25 @@ const JobDetails = () => {
             ? job.map((items, index) => (
                 <Card key={index}>
                   <Card.Header>
+                    <span>Position:</span>
                     <h3>{items.title}</h3>
                   </Card.Header>
                   <Card.Body>
-                    <Card.Title>{items.company}</Card.Title>
+                    <Card.Title>
+                      {" "}
+                      <strong>Company : </strong> {items.company}
+                    </Card.Title>
                     <Card.Text>
                       <strong>Location:</strong> {items.location}
                     </Card.Text>
                     <Card.Text>
-                      <strong>Salary:</strong> {items.salary}
+                      <strong>Salary: $ </strong> {items.salary}
                     </Card.Text>
                     <Card.Text>{items.description}</Card.Text>
                     <Button variant="primary">Apply Now</Button>
                   </Card.Body>
                   <Card.Footer className="text-muted">
-                    Posted by {items.userName}
+                    Posted by {items.idUser}
                   </Card.Footer>
                 </Card>
               ))
