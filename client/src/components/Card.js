@@ -3,7 +3,6 @@ import { GrLike } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
 const Card = (props) => {
-  console.log("props", props);
   return (
     <div
       className="card col-4"
@@ -51,7 +50,10 @@ const Card = (props) => {
               }}
             >
               <div className="main-title__left col-8">
-                <p className="left-company-name fs-6 m-0 text-start">
+                <p
+                  className="left-company-name fs-6 m-0 text-start"
+                  style={{ color: "#9b9b9b" }}
+                >
                   {props.companyName}
                 </p>
                 <h3 className="left-name-job fs-2 m-0 text-start">
@@ -64,9 +66,10 @@ const Card = (props) => {
                   alt=""
                   className="right-logo card-item__main "
                   style={{
-                    width: "30px",
-                    height: "30px",
+                    width: "50px",
+                    height: "50px",
                     objectFit: "contain",
+                    borderRadius: "4px",
                   }}
                 />
               </div>
