@@ -56,6 +56,15 @@ const Jobs = {
       throw ("error at model >", error);
     }
   },
+  deleteJob: async (id) => {
+    const sql_delete = "UPDATE jobs SET deleted=TRUE where idUser=?";
+    try {
+      const result = await query(sql_delete, [id]);
+      return result;
+    } catch (error) {
+      throw ("error at model >", error);
+    }
+  },
 };
 
 module.exports = Jobs;

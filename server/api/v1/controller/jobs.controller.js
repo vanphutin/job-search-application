@@ -71,3 +71,26 @@ module.exports.createJob = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+module.exports.deleteJob = async (req, res) => {
+  try {
+    const deleteJobs = await Jobs.deleteJob(req.params?.id);
+
+    if (!deleteJobs) {
+      return res.status(404).json({
+        code: 404,
+        message: "job not found",
+      });
+    }
+    res.status(200).json({
+      code: 200,
+      message: "Delete job success",
+      data: {
+        job: deleteJobs,
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
