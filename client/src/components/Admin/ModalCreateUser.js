@@ -21,18 +21,27 @@ function ModalCreateUser({ show, handleClose }) {
     };
     console.log("user", user);
     try {
-      const response = await fetch("http://localhost:8081/api/v1/create", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
+      const response = await fetch(
+        "http://localhost:8081/api/v1/users/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      );
       const result = await response.json();
-      handleClose();
+      if (response.status !== 200) {
+        console.log("error server");
+      }
+      console.log("res>>", response);
+
+      console.log("result", result);
     } catch (error) {
       console.log("Error when creating user", error);
     }
+    handleClose();
   };
 
   return (
