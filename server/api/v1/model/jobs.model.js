@@ -9,7 +9,7 @@ const query = promisify(db.query).bind(db);
 const Jobs = {
   // [GET] /api/v1/jobs
   getAllJobs: async () => {
-    const sql = "SELECT * FROM jobs";
+    const sql = "SELECT * FROM jobs WHERE deleted=FALSE";
     try {
       const result = await query(sql);
       console.log("result", result);

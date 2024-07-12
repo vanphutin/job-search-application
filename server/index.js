@@ -4,6 +4,10 @@ const routerV1 = require("./api/v1/routers/index.router");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
+const bodyParser = require("body-parser");
+
+//parse application
+app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 3000;
 

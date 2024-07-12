@@ -20,6 +20,7 @@
     "content-type": "^1.0.5",
     "cookie": "^0.6.0",
     "cookie-signature": "^1.0.6",
+    "cors": "^2.8.5",
     "debug": "^2.6.9",
     "define-data-property": "^1.1.4",
     "depd": "^2.0.0",
@@ -54,6 +55,7 @@
     "is-extglob": "^2.1.1",
     "is-glob": "^4.0.3",
     "is-number": "^7.0.0",
+    "md5": "^2.3.0",
     "media-typer": "^0.3.0",
     "merge-descriptors": "^1.0.1",
     "methods": "^1.1.2",
@@ -95,6 +97,7 @@
     "undefsafe": "^2.0.5",
     "unpipe": "^1.0.0",
     "utils-merge": "^1.0.1",
+    "uuid": "^10.0.0",
     "vary": "^1.1.2"
   },
   "scripts": {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import { format } from "date-fns"; // Thư viện date-fns (tùy chọn)
 
 const ListCard = () => {
   const [jobs, setJobs] = useState([]);
@@ -16,7 +15,15 @@ const ListCard = () => {
   }, []);
 
   return (
-    <div className="row" style={{ margin: "20px", gap: "10px" }}>
+    <div
+      className="row"
+      style={{
+        margin: "20px",
+        gap: "10px",
+        alignItems: "center",
+        justifyItems: "center",
+      }}
+    >
       {jobs && jobs.length > 0
         ? jobs.map((items, index) => (
             <Card
