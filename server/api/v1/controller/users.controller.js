@@ -57,3 +57,23 @@ module.exports.postCreateUser = async (req, res) => {
     });
   }
 };
+module.exports.getDetailUser = async (req, res) => {
+  try {
+    const singleUser = await Users.getDetailUser(req.params?.id);
+    if (!singleUser) {
+      return res.status(400).json({
+        code: 404,
+        message: "user not found",
+      });
+    }
+
+    res.status(200).json({
+      code: 200,
+      message: " success",
+      data: singleUser,
+    });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};

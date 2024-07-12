@@ -45,6 +45,15 @@ const Users = {
       throw ("error at model", error);
     }
   },
+  getDetailUser: async (id) => {
+    const sql_getOneUser = "SELECT * FROM users WHERE idUser=?";
+    try {
+      const result = await query(sql_getOneUser, [id]);
+      return result;
+    } catch (error) {
+      throw ("error at model >", error);
+    }
+  },
 };
 
 module.exports = Users;
